@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block head %}
+ <style>
+        .container.data{
+            background-color:  whitesmoke;
+
+        }
+
+    </style>
+{% endblock head %}
+
+
+
+
+{% block content %}
+<div class="container data">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" style="background-color: #e7e7e7">
+
+            <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+          <th>User Id</th>
+          <th>Title</th>
+          <th>Body</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for data in file %}
+
+      <tr>
+          <td>{{ data.id }}</td>
+          <td>{{ data.userId }}</td>
+          <td>{{ data.title }}</td>
+          <td>{{ data.body }}</td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

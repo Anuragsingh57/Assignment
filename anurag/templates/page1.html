@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <style>
+        .container.data{
+            background-color:  whitesmoke;
+
+        }
+
+    </style>
+<script>
+    window.onload = function () {
+        document.getElementById("save").onclick = function fun() {
+
+            var x = document.getElementById("{{ id }}"),value;
+
+            var url = 'https://jsonplaceholder.typicode.com/posts/' + x;
+            var xhr =  new XMLHttpRequest();
+            xhr.open('GET', url, true)
+            xhr.send();
+
+
+
+
+        }
+    }
+
+</script>
+
+
+{% endblock head %}
+
+
+{% block content %}
+
+
+
+<div class="container data">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" style="background-color: #e7e7e7">
+
+            <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for data in file %}
+
+      <tr>
+          <td id="{{ data.id }}">{{ data.title }}</td>
+          <td><a href="{% url 'task1.1' %}" >
+              <input id="save" class="btn btn-info" type="button" value="Read More" ></a></td>
+      </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

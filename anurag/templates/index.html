@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+
+{% endblock head%}
+    <meta charset="UTF-8">
+
+    <title>Assignment
+    </title>
+
+
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link href="{% static 'bs/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'bs/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'style.css' %}">
+
+
+    <style>
+        body{background-color:ghostwhite}
+        .container-fluid.header {
+            font-family: Castellar  ;
+            background-color: #2e6da4;
+        }
+
+        .container{
+            font-family: "Harlow Solid Italic";
+            background-color: #1b6d85;
+        }
+    </style>
+
+
+
+</head>
+<body>
+<div class="container-fluid header">
+<center><h1>Assignment</h1></center>
+
+</div>
+<div class="container" >
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+    <a href="{% url 'task1' %}"><input class="btn btn-success" type="button" value="Task 1"></a>
+    <a href="{% url 'task2' %}"><input class="btn btn-success" type="button" value="Task 2"></a>
+    <a href="{% url 'task3' %}"><input class="btn btn-success" type="button" value="Task 3"></a>
+</div>
+</div>
+
+{% block content %}
+
+{% endblock content%}
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+
+{% block head %}
+<style>
+        .container.data{
+            background-color:  whitesmoke;
+
+        }
+
+    </style>
+
+    <script>
+    function form() {
+
+        var x = document.forms["myform"]["select"].value;
+
+        if(x == "Select"){
+            alert("Please select Email");
+            return false;
+
+        }
+    }
+
+
+    </script>
+
+
+{% endblock head%}
+
+
+
+{% block content %}
+    <br>
+
+<div class="container data"><br>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" style="background-color: #e7e7e7;">
+        <form name="myform" action="{% url 'task3' %}" method="post" onsubmit="form()">
+        {% csrf_token %}
+            <label>E-mail</label>
+             <select class="form-control" name="select" id="a1" required>
+                  <option>Select</option>
+                 {% for data in file %}
+                 <option>{{ data.email }}</option>
+                 {% endfor %}
+                </select><br>
+
+            <label>Subject</label>
+            <input type="text" class="form-control" name="subject" id="a2" required><br>
+            <label>Message</label>
+            <textarea class="form-control" style="height: 150px" id="a3" name="message" required></textarea><br>
+            <input type="submit" value="submit"  class="btn btn-success form-control">
+
+
+        </form>
+        </div>
+    </div><br>
+    </div></div>
+
+
+
+{% endblock content%}
